@@ -12,8 +12,9 @@ var resultArray = [];
 var userArray = [];
 var passwordLengthArray = [];
 
+// function that selects number of characters for the password
   var writePassword = function () {
-    reset();
+    passwordLengthArray = [];
     var passwordLength = window.prompt("How many characters would you like your password to be? Pick a number between 8 and 128.");
     passwordLength = parseInt(passwordLength);
     console.log(passwordLength);
@@ -32,7 +33,9 @@ var passwordLengthArray = [];
     }
   };
 
+  // function that selects types of characters in the password
 var characterSelections = function() {
+  resultArray = [];
   var promptUppercase = window.confirm ("Would you like uppercase letters in your password?");
   if (promptUppercase) {
     resultArray = resultArray.concat(uppercaseArray);
@@ -62,7 +65,9 @@ var characterSelections = function() {
   generatePassword();
 };
 
+// function that randomizes the password 
 var generatePassword = function() {
+  userArray = [];
   var passwordLength = passwordLengthArray[0];
   for (var i=0; i < passwordLength; i++) {
     userArray.push(resultArray[Math.floor(Math.random() * resultArray.length)]);
@@ -71,7 +76,7 @@ var generatePassword = function() {
   inputPassword();
 };
 
-// Write password to the #password input
+// function that puts the completed password in the correct window for the user 
 function inputPassword() {
   var password = userArray.join("");
   var passwordText = document.querySelector("#password");
@@ -80,9 +85,5 @@ function inputPassword() {
 
 }
 
-function reset() {
-  var passwordLengthArray = undefined;
-  var userArray = undefined;
-}
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

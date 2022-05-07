@@ -17,14 +17,12 @@ var passwordLengthArray = [];
     passwordLengthArray = [];
     var passwordLength = window.prompt("How many characters would you like your password to be? Pick a number between 8 and 128.");
     passwordLength = parseInt(passwordLength);
-    console.log(passwordLength);
 
     if(passwordLength < 8 || passwordLength > 128) {
       window.alert("Your password must be at least 8 and no more than 128 characters. Please try again.");
       writePassword();
     }else if (passwordLength >= 8 || passwordLength >= 128) {
       passwordLengthArray = passwordLengthArray.concat(passwordLength);
-      console.log(">>" + passwordLengthArray);
       // return passwordLength;
       characterSelections();
     }else {
@@ -39,25 +37,21 @@ var characterSelections = function() {
   var promptUppercase = window.confirm ("Would you like uppercase letters in your password?");
   if (promptUppercase) {
     resultArray = resultArray.concat(uppercaseArray);
-    console.log(resultArray);
   }
 
   var promptLowercase = window.confirm ("Would you like lowercase letters in your password?");
   if (promptLowercase) {
     resultArray = resultArray.concat(lowercaseArray);
-    console.log(">>" + resultArray);
   }
 
   var promptNumbers = window.confirm ("Would you like numbers in your password?");
   if (promptNumbers) {
     resultArray = resultArray.concat(numArray);
-    console.log("!!" + resultArray);
   }
 
   var promptCharacters = window.confirm ("Would you like special characters in your password?");
   if (promptCharacters) {
     resultArray = resultArray.concat(charactersArray);
-  console.log("??" + resultArray);
   }
   if (promptCharacters === false && promptNumbers === false && promptLowercase === false && promptUppercase === false) {
     window.alert("You must select at least one character type. Please try again.")
@@ -71,7 +65,6 @@ var generatePassword = function() {
   var passwordLength = passwordLengthArray[0];
   for (var i=0; i < passwordLength; i++) {
     userArray.push(resultArray[Math.floor(Math.random() * resultArray.length)]);
-    console.log(userArray);
   }
   inputPassword();
 };

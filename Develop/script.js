@@ -13,7 +13,7 @@ var userArray = [];
 var passwordLengthArray = [];
 
   var writePassword = function () {
-    // writePassword.reset();
+    reset();
     var passwordLength = window.prompt("How many characters would you like your password to be? Pick a number between 8 and 128.");
     passwordLength = parseInt(passwordLength);
     console.log(passwordLength);
@@ -56,9 +56,9 @@ var characterSelections = function() {
     resultArray = resultArray.concat(charactersArray);
   console.log("??" + resultArray);
   }
-  // // else (resultArray = null) {
-  //   characterSelections();
-  
+  if (promptCharacters === false && promptNumbers === false && promptLowercase === false && promptUppercase === false) {
+    window.alert("You must select at least one character type. Please try again.")
+  }
   generatePassword();
 };
 
@@ -78,6 +78,11 @@ function inputPassword() {
 
   passwordText.value = password;
 
+}
+
+function reset() {
+  var passwordLengthArray = undefined;
+  var userArray = undefined;
 }
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);

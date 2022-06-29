@@ -1,4 +1,4 @@
-# 03 Nina Siegel Password Generator
+# 03 Password Generator
 
 ## Purpose 
 
